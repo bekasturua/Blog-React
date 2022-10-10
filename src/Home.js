@@ -6,15 +6,17 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:8000/blogs")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        console.log(data);
-        setBlogs(data);
-        setIsLoading(false);
-      });
+    setTimeout(() => {
+      fetch("http://localhost:8000/blogs")
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+          console.log(data);
+          setBlogs(data);
+          setIsLoading(false);
+        });
+    }, 1000);
   }, []);
 
   return (
